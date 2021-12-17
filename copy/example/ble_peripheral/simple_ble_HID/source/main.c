@@ -199,6 +199,9 @@ static void hal_init(void)
     /*
         add opt and flash init 
     */
+    extern int hal_otp_flash_init(void);
+    hal_otp_flash_init();
+	
     LOG_INIT();
     gpio_init();
 }

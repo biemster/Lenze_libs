@@ -182,48 +182,33 @@ static void hal_rfphy_init(void)
     NVIC_SetPriority((IRQn_Type)BB_IRQn,    IRQ_PRIO_REALTIME);
     NVIC_SetPriority((IRQn_Type)TIM1_IRQn,  IRQ_PRIO_HIGH);     //ll_EVT
     NVIC_SetPriority((IRQn_Type)TIM2_IRQn,  IRQ_PRIO_HIGH);     //OSAL_TICK
-    //ble memory init and config
-    ble_mem_init_config();
+    
 }
-
-
-void hal_gpio_IRQ(void)
-{
-	_symrom_GPIO_IRQHandler();
-}
-
-//void hal_adc_IRQ(void)
-//{
-//	_symrom_hal_ADC_IRQHandler();
-//}
 
 static void hal_init(void)
 {
-	int ret;
     hal_low_power_io_init();
     clk_init(g_system_clk); //system init
     hal_rtc_clock_config((CLK32K_e)g_clk32K_config);
-
     hal_pwrmgr_init();
     //TODO
     /*
         add opt and flash init 
     */
+	extern int hal_otp_flash_init(void);
+    hal_otp_flash_init();
     LOG_INIT();
-    //gpio_init();
-	JUMP_FUNCTION_SET(GPIO_IRQ_HANDLER,(uint32_t)&hal_gpio_IRQ);
-	ret = _symrom_gpio_init();
-	
-//	JUMP_FUNCTION_SET(ADCC_IRQ_HANDLER,(uint32_t)&hal_adc_IRQ);
-//	ret = _symrom_hal_adc_init();	
-	hal_adc_init_x();
+	gpio_init();
+	hal_adc_init();
 }
 
 int  main(void)  
-{    
-	hal_watchdog_config(WDG_2S);//WDG_2S WDG_256S
+{     
+    //ble memory init and config
+    ble_mem_init_config();
+    hal_watchdog_config(WDG_2S);
     g_system_clk = SYS_CLK_XTAL_16M;//SYS_CLK_DBL_32M,SYS_CLK_XTAL_16M;
-    g_clk32K_config = CLK_32K_XTAL;//CLK_32K_XTAL,CLK_32K_RCOSC
+    g_clk32K_config = CLK_32K_RCOSC;//CLK_32K_XTAL,CLK_32K_RCOSC
 
     drv_irq_init();
     init_config();

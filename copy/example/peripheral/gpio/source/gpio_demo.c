@@ -32,12 +32,13 @@ o abide by the terms of these agreements.
 **************************************************************************************************/
 
 /**************************************************************************************************
-  Filename:       spi_demo.c
+  Filename:       gpio_demo.c
   Revised:        
   Revision:       
 
-  Description:  
+  Description:    
                   
+
 **************************************************************************************************/
 /*********************************************************************
  * INCLUDES
@@ -46,11 +47,9 @@ o abide by the terms of these agreements.
 #include "global_config.h"
 #include "OSAL.h"
 #include "OSAL_PwrMgr.h"
+#include "gpio_demo.h"
 #include "jump_function.h"
-#include "spi.h"
-#include "spiflash.h"
-#include "spi_demo.h"
-#include "log.h"
+#include  "log.h"
 /*********************************************************************
  * MACROS
  */
@@ -74,88 +73,123 @@ o abide by the terms of these agreements.
 /*********************************************************************
  * EXTERNAL FUNCTIONS
  */
-extern uint8 _symrom_osal_start_reload_timer( uint8 taskID, uint16 event_id, uint32 timeout_value );
-extern void _symrom_WaitMs(uint32_t msecond);
 
 
 /*********************************************************************
  * LOCAL VARIABLES
  */
+uint8 application_TaskID; 
 
-static uint8 timer_TaskID;
-
-hal_spi_t spi ={
-	.spi_index = SPI0,
-};
-
-spi_Cfg_t spi_cfg = {	
-	
-	.sclk_pin = P36,
-	.ssn_pin = P37,
-	.MOSI = P35,
-	.MISO = P38,
-	
-	.baudrate = 1000000,
-	.spi_tmod = SPI_TRXD,
-	.spi_scmod = SPI_MODE0,
-	
-	.int_mode = false,
-	.force_cs = true,
-	.evt_handler = NULL,
-};
-
-
-extern int spi_bus_init(hal_spi_t* spi_ptr,spi_Cfg_t cfg);
-void spi_test(void)
+volatile unsigned int int_flag = 0;
+const uint8_t pin_map[GPIO_NUM] = 
 {
-	volatile uint32_t flash_id = 0;
-	int ret;
+	0,    //p0
+	1,    //p1
+	2,    //p2
+	3,    //p3
+	7,    //p7
+	9,    //p9
+	10,   //p10
+	11,   //p11
+	14,   //p14
+	15,   //p15
+	16,   //p16
+	17,   //p17
+	18,   //p18
+	20,   //p20
+	23,   //p23
+	24,   //p24
+	25,   //p25
+	26,   //p26
+	27,   //p27
+	31,   //p31
+	32,   //p32
+	33,   //p33
+	34,   //p34
+};
+
+extern uint32_t s_gpio_wakeup_src[2];
+void pos_cb(gpio_pin_e pin,gpio_polarity_e type)
+{
+	uint8_t pin_idx = pin_map[pin];
+	uint32_t triggered = s_gpio_wakeup_src[pin_idx/32] & BIT(pin_idx%32);
 	
-	_symrom_gpio_fmux_control(P35,Bit_DISABLE);
-	_symrom_gpio_fmux_control(P36,Bit_DISABLE); 
-	_symrom_gpio_fmux_control(P37,Bit_DISABLE); 
-	_symrom_gpio_fmux_control(P38,Bit_DISABLE);
-	
-	//for(;;)
-	{		
-		ret = spi_bus_init(&spi,spi_cfg);
-		if(ret != PPlus_SUCCESS)
-		{
-			LOG("error:%d %d \n",__LINE__,ret);
-			while(1);
-		}
-							
-		flash_id = spiflash_read_identification();
-		LOG("flash_id:0x%x\n",flash_id);
-		
-		if((flash_id == 0) || (flash_id == 0xffffffff))
-		{
-			LOG("error:%d %d \n",__LINE__,ret);
-			while(1);	
-		}									
-		spi_bus_deinit(&spi);
-			
-		//_symrom_WaitMs(1000);
+	LOG("pin:%d (pos) 0x%x 0x%x ",pin,s_gpio_wakeup_src[0],s_gpio_wakeup_src[1]);
+	int_flag++;
+
+	if(triggered)
+	{
+		LOG("wakeup:%d\n",int_flag);
+	}
+	else
+	{
+		LOG("int:%d\n",int_flag);
 	}
 }
 
-void spi_Init( uint8 task_id )
+void neg_cb(gpio_pin_e pin,gpio_polarity_e type)
 {
-    timer_TaskID = task_id;
-    LOG("spi demo\n");
-					
-	spi_test();
-    _symrom_osal_start_reload_timer( timer_TaskID, TIMER_1000_MS_EVT, 1000);
+	uint8_t pin_idx = pin_map[pin];
+	uint32_t triggered = s_gpio_wakeup_src[pin_idx/32] & BIT(pin_idx%32);
+
+	LOG("pin:%d (neg) 0x%x 0x%x ",pin,s_gpio_wakeup_src[0],s_gpio_wakeup_src[1]);
+	int_flag++;
+
+	if(triggered)
+	{
+		LOG("wakeup:%d\n",int_flag);
+	}
+	else
+	{
+		LOG("int:%d\n",int_flag);
+	}
 }
 
-
-uint16 spi_ProcessEvent( uint8 task_id, uint16 events )
+gpioin_t pin_test[2];
+void gpio_Init( uint8 task_id )
 {
-    if (events & TIMER_1000_MS_EVT )
-    {
-		spi_test();
-        return (events ^ TIMER_1000_MS_EVT);
-    }
+	volatile int ret;
+	gpio_pin_e pin_i = P14;
+	gpio_pin_e pin_o = P15;
+	gpio_pupd_e type = GPIO_PULL_DOWN;
+	
+	application_TaskID = task_id;
+	LOG("GPIO_demo\n");
 
-    return 0;
+	ret = gpioin_init(pin_test,sizeof(pin_test)/sizeof(pin_test[0]));
+	if(ret != PPlus_SUCCESS)
+	{
+		LOG("gpio init error:%d\n",ret);
+	}
+	
+	gpio_pull_set(pin_i,type);
+	ret = gpioin_register(pin_i,pos_cb,neg_cb);
+	
+	gpio_dir(pin_o,GPIO_OUTPUT);
+	gpio_fast_write(pin_o,1);
+	gpio_retention(pin_o,TRUE);
+	
+	osal_start_timerEx(application_TaskID, OSAL_ONCE_TIMER_EVT, 5000);
+	osal_start_reload_timer(application_TaskID, OSAL_RELOAY_TIMER_EVT, 5000);
+}
+
+uint16 gpio_ProcessEvent( uint8 task_id, uint16 events )
+{
+    if(task_id != application_TaskID)
+    {
+        return 0;
+    }
+	
+	if ( events & OSAL_ONCE_TIMER_EVT )
+	{
+		osal_start_timerEx(application_TaskID, OSAL_ONCE_TIMER_EVT, 5000);
+		return ( events ^ OSAL_ONCE_TIMER_EVT );
+	}
+
+	if ( events & OSAL_RELOAY_TIMER_EVT )
+	{
+		return ( events ^ OSAL_RELOAY_TIMER_EVT );
+	}
+
+	return 0;
 }

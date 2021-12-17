@@ -5,6 +5,11 @@
 #ifdef USE_ROMSYM_ALIAS
 
 
+
+#define __memcpy_fast _symrom___memcpy_fast
+#define memcpy _symrom_memcpy
+#define memset _symrom_memset
+#define memcmp _symrom_memcmp
 #define appearanceUUID _symrom_appearanceUUID
 #define ATT_CompareUUID _symrom_ATT_CompareUUID
 #define ATT_ErrorRsp _symrom_ATT_ErrorRsp
@@ -24,13 +29,14 @@
 #define characterUUID _symrom_characterUUID
 #define charUserDescUUID _symrom_charUserDescUUID
 #define clientCharCfgUUID _symrom_clientCharCfgUUID
-
-#define clk_get_pclk 	_symrom_clk_get_pclk
-#define clk_init 		_symrom_clk_init
+#define clk_get_pclk _symrom_clk_get_pclk
+#define clk_init _symrom_clk_init
 #define clk_reset       _symrom_clk_reset
 #define clk_gate_enable _symrom_clk_gate_enable
 #define clk_gate_disable _symrom_clk_gate_disable
 #define WaitMs			 _symrom_WaitMs
+#define get_systick			 _symrom_get_systick
+#define get_ms_intv			 _symrom_get_ms_intv
 
 #define deviceNameUUID _symrom_deviceNameUUID
 #define disableSleep _symrom_disableSleep
@@ -163,6 +169,7 @@
 #define osal_set_event _symrom_osal_set_event
 #define osal_start_system _symrom_osal_start_system
 #define osal_start_timerEx _symrom_osal_start_timerEx
+#define osal_start_reload_timer _symrom_osal_start_reload_timer
 #define osal_stop_timerEx _symrom_osal_stop_timerEx
 #define osal_strlen _symrom_osal_strlen
 #define osal_sys_tick _symrom_osal_sys_tick
@@ -179,7 +186,7 @@
 #define pwrmgr_clk_gate_config _symrom_pwrmgr_clk_gate_config
 #define read_current_fine_time _symrom_read_current_fine_time
 #define rf_phy_ini _symrom_rf_phy_ini
-#define rf_phy_set_txPower _symrom_rf_phy_set_txPower
+//#define rf_phy_set_txPower _symrom_rf_phy_set_txPower //use rf patch api
 #define rtc_get_counter _symrom_rtc_get_counter
 #define s_gpio_wakeup_src _symrom_s_gpio_wakeup_src
 #define scanInfo _symrom_scanInfo
@@ -247,6 +254,8 @@
 
 #define ll_hw_set_timing _symrom_ll_hw_set_timing
 #define ll_hw_rst_tfifo _symrom_ll_hw_rst_tfifo
+#define ll_hw_rst_rfifo _symrom_ll_hw_rst_rfifo
+#define set_max_length _symrom_set_max_length
 #define ll_hw_set_irq _symrom_ll_hw_set_irq
 #define ll_hw_set_stx _symrom_ll_hw_set_stx
 #define ll_hw_set_srx _symrom_ll_hw_set_srx
@@ -254,7 +263,19 @@
 #define ll_hw_set_trx_settle _symrom_ll_hw_set_trx_settle
 #define WaitUs _symrom_WaitUs
 #define set_timer _symrom_set_timer
+#define ll_hw_get_tr_mode _symrom_ll_hw_get_tr_mode
+#define ll_hw_set_trx _symrom_ll_hw_set_trx
+#define ll_hw_set_tx_rx_release _symrom_ll_hw_set_tx_rx_release
+#define ll_hw_set_rx_tx_interval _symrom_ll_hw_set_rx_tx_interval
+#define ll_hw_set_tx_rx_interval _symrom_ll_hw_set_tx_rx_interval
+#define ll_hw_set_pplus_pktfmt _symrom_ll_hw_set_pplus_pktfmt
+#define ll_hw_ign_rfifo _symrom_ll_hw_ign_rfifo
+#define ll_hw_set_crc_fmt _symrom_ll_hw_set_crc_fmt
 
+
+#define ll_hw_set_rx_timeout _symrom_ll_hw_set_rx_timeout
+#define ll_hw_read_rfifo_pplus _symrom_ll_hw_read_rfifo_pplus
+#define ll_hw_read_rfifo _symrom_ll_hw_read_rfifo
 #define ll_hw_get_tfifo_wrptr _symrom_ll_hw_get_tfifo_wrptr
 #define getRxBufferFree _symrom_getRxBufferFree
 #define getRxBufferSize _symrom_getRxBufferSize
@@ -269,6 +290,21 @@
 #define hal_uart_send_buff _symrom_hal_uart_send_buff
 #define log_vsprintf _symrom_log_vsprintf
 #define hal_uart_init _symrom_hal_uart_init
+#define includeUUID _symrom_includeUUID
+#define extReportRefUUID _symrom_extReportRefUUID
+#define reportRefUUID _symrom_reportRefUUID
+#define osal_start_reload_timer _symrom_osal_start_reload_timer
+#define linkDB_PerformFunc _symrom_linkDB_PerformFunc
+#define watchdog_TaskID _symrom_watchdog_TaskID
+#define watchdog_sleep_handler _symrom_watchdog_sleep_handler
+#define wdg_ms_cycle _symrom_wdg_ms_cycle
+#define clk_gate_enable _symrom_clk_gate_enable
+#define hal_UART0_IRQHandler _symrom_hal_UART0_IRQHandler
+#define GAP_ConfigDeviceAddr _symrom_GAP_ConfigDeviceAddr
+#define otp_go_read _symrom_otp_go_read
+#define init_spif _symrom_init_spif
+#define g_bootFlag _symrom_g_bootFlag
+#define LL_ReadBDADDR _symrom_LL_ReadBDADDR
 
 #define pwm_module_init 	_symrom_pwm_module_init
 #define pwm_module_deinit 	_symrom_pwm_module_deinit
@@ -285,6 +321,9 @@
 #define hal_timer_stop 				_symrom_hal_timer_stop
 #define hal_timer_init 				_symrom_hal_timer_init
 #define hal_timer_deinit 			_symrom_hal_timer_deinit
+
+#define pwrmgr_lock        _symrom_pwrmgr_lock
+#define pwrmgr_unlock      _symrom_pwrmgr_unlock
 
 #endif
 #endif

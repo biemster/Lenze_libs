@@ -30,56 +30,37 @@
 
 **************************************************************************************************/
 #include "rom_sym_def.h"
-#include "watchdog.h"
+#include "spif.h"
+#include "otp.h"
 #include "error.h"
-#include "clock.h"
-#include "jump_function.h"
+#include "pwrmgr.h"
+#include "rf_phy_driver.h"
 
-extern volatile uint8 g_clk32K_config;
-extern uint32_t s_config_swClk1;
-#if(CFG_WDT_ENABLE==1)
-WDG_CYCLE_Type_e g_wdt_cycle = 0xFF;//valid value:0~7.0xFF:watchdog disable.
-#endif
+extern uint8_t  g_bootFlag ;
+extern bool otp_go_read(void);
+extern int pwrmgr_register(MODULE_e mod, pwrmgr_Hdl_t sleepHandle, pwrmgr_Hdl_t wakeupHandle);
 
-
-#if(CFG_WDT_ENABLE==1)
-//void hal_watchdog_init(void)
-//{
-//	watchdog_init(g_wdt_cycle,/*int_mode*/0);//wdt polling_mode
-//	s_config_swClk1|=_CLK_WDT;
-//}
-void hal_watchdog_init(void)
+static void hw_otp_spif_config(void)
 {
-//	watchdog_init(g_wdt_cycle,/*int_mode*/0);//wdt polling_mode
-//	s_config_swClk1|=_CLK_WDT;
-	// bugfix for watchdog start osal timer when osal memory not init
-	extern uint32 wdg_ms_cycle;
-	extern uint8 watchdog_TaskID;
-	wdg_ms_cycle = 0xFFF0;
-	watchdog_TaskID = 0xF0;
-	watchdog_init(g_wdt_cycle,/*int_mode*/0);//wdt polling_mode
-	s_config_swClk1|=_CLK_WDT;
-	
-	extern void watchdog_sleep_handler(void);
-	watchdog_sleep_handler();	
+	if(g_bootFlag)
+	{
+	  	otp_go_read();
+	}
+	else
+	{
+	    gpio_fmux_set(P35,FMUX_MISO_0);
+	    gpio_fmux_set(P36,FMUX_CLK);
+	  	gpio_fmux_set(P37,FMUX_CSN); 
+	  	gpio_fmux_set(P38,FMUX_MISO_1);    
+	  	init_spif();
+	}
+
 }
-#endif
-
-int hal_watchdog_config(WDG_CYCLE_Type_e cycle)
+int hal_otp_flash_init(void)
 {
-	
-#if(CFG_WDT_ENABLE==1)
-    if(cycle > WDG_256S)
-        return PPlus_ERR_INVALID_PARAM;
-    else
-        g_wdt_cycle = cycle;
-
-    hal_watchdog_init();
-    JUMP_FUNCTION_SET(HAL_WATCHDOG_INIT, (uint32_t)&hal_watchdog_init);
-	return PPlus_SUCCESS;
-#else
-	(void) cycle;
-	return PPlus_ERR_UNINITIALIZED;
-#endif	
-    
+	if(g_system_clk == SYS_CLK_XTAL_16M)
+		*(volatile int*)0x40000028 |= 0x10; //bypass bridge
+	else
+		*(volatile int*)0x40000028 &= 0xFFFFFFEF;
+    return pwrmgr_register(MOD_SPIF, NULL,  hw_otp_spif_config);
 }

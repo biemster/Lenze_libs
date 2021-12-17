@@ -174,7 +174,7 @@ static void adc_evt(adc_Evt_t* pev)
 	
 	is_high_resolution = (adc_cfg.is_high_resolution & BIT(pev->ch))?TRUE:FALSE;
 	is_differential_mode = (adc_cfg.is_differential_mode & BIT(pev->ch))?TRUE:FALSE;
-	value = hal_adc_value_cal_x(pev->ch,pev->data, pev->size, is_high_resolution,is_differential_mode);
+	value = hal_adc_value_cal(pev->ch,pev->data, pev->size, is_high_resolution,is_differential_mode);
 
 	switch(pev->ch)
 	{
@@ -233,7 +233,7 @@ static void adcMeasureTask( void )
 	LOG("\nadcMeasureTask\n");
 	if(FALSE == batt_mode)
 	{
-		ret = hal_adc_config_channel_x(adc_cfg, adc_evt);
+		ret = hal_adc_config_channel(adc_cfg, adc_evt);
 	}
 	else
 	{
@@ -244,10 +244,10 @@ static void adcMeasureTask( void )
 		}
 		
 		pin = s_pinmap[batt_ch];
-		_symrom_gpio_cfg_analog_io(pin,Bit_DISABLE);
-		_symrom_gpio_write(pin, 1);
-		ret = hal_adc_config_channel_x(adc_cfg, adc_evt);
-		_symrom_gpio_cfg_analog_io(pin,Bit_DISABLE);
+		gpio_cfg_analog_io(pin,Bit_DISABLE);
+		gpio_write(pin, 1);
+		ret = hal_adc_config_channel(adc_cfg, adc_evt);
+		gpio_cfg_analog_io(pin,Bit_DISABLE);
 	}
 
 	if(ret != PPlus_SUCCESS)
@@ -256,8 +256,7 @@ static void adcMeasureTask( void )
 		return;
 	}
 	
-	//_symrom_hal_adc_start();
-	hal_adc_start_x();
+	hal_adc_start();
 	if(adc_cfg.is_continue_mode == FALSE)
 	{
 		osal_start_timerEx(adcDemo_TaskID, adcMeasureTask_EVT,1000);

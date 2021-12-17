@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project Name="rf" Version="v1.6" Language="C">
+<Project Name="gpio" Version="v1.6" Language="C">
   <Description>CPU: ck802
 Chip: smartl
 Board: smartl_802_evb
 BareMetal: Without RTOS</Description>
   <Dependencies Name="Debug"/>
-  <VirtualDirectory Name="ck802" ExcludeProjConfig="BuildSet">
+  <VirtualDirectory Name="ck802">
     <File Name="ck802/board_init.c">
       <FileOption/>
     </File>
@@ -40,16 +40,57 @@ BareMetal: Without RTOS</Description>
   <MonitorProgress>
     <DebugLaunch>28</DebugLaunch>
   </MonitorProgress>
-  <VirtualDirectory Name="jump"/>
-  <VirtualDirectory Name="lib">
-    <File Name="../src_patch/patch.c">
-      <FileOption/>
-    </File>
-    <File Name="../src_patch/rf_phy_driver.c">
+  <VirtualDirectory Name="jump">
+    <File Name="../../../../misc/jump_table.c">
       <FileOption/>
     </File>
   </VirtualDirectory>
-  <VirtualDirectory Name="driver"/>
+  <VirtualDirectory Name="lib" ExcludeProjConfig="">
+    <File Name="../../../../lib/librf.a">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="driver">
+    <File Name="../../../../components/driver/source/clock.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/driver/source/my_printf.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/driver/source/pwrmgr.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/driver/source/watchdog.c">
+      <FileOption/>
+    </File>
+    <File Name="../../../../components/driver/source/flash.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="main">
+    <File Name="../source/main.c">
+      <FileOption/>
+    </File>
+    <File Name="../source/gpio_demo.c">
+      <FileOption/>
+    </File>
+    <File Name="../source/gpio_Main.c">
+      <FileOption/>
+    </File>
+    <File Name="../source/OSAL_gpio.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <DebugSessions>
+    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
+    <memoryExpressions>0x40030000;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
+    <statistics>;;MHZ;</statistics>
+    <peripheralTabs/>
+    <WatchDisplayFormat>1</WatchDisplayFormat>
+    <LocalDisplayFormat>0</LocalDisplayFormat>
+    <debugLayout/>
+    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
+  </DebugSessions>
   <BuildConfigs>
     <BuildConfig Name="BuildSet">
       <Target>
@@ -122,13 +163,13 @@ BareMetal: Without RTOS</Description>
       </Target>
       <Output>
         <OutputName>$(ProjectName)</OutputName>
-        <Type>Static Library</Type>
+        <Type>Executable</Type>
         <CreateHexFile>yes</CreateHexFile>
         <CreateBinFile>yes</CreateBinFile>
         <Preprocessor>yes</Preprocessor>
         <Disassmeble>yes</Disassmeble>
-        <CallGraph>no</CallGraph>
-        <Map>no</Map>
+        <CallGraph>yes</CallGraph>
+        <Map>yes</Map>
       </Output>
       <User>
         <BeforeCompile>
@@ -145,11 +186,11 @@ BareMetal: Without RTOS</Description>
         </AfterMake>
       </User>
       <Compiler>
-        <Define>_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=0 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
+        <Define>_PHY_DEBUG SERV_GGS=0 SERV_GATT_SERV=0 SERV_DEV_INFO=0 PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0 DEBUG_INFO=1 CFG_WDT_ENABLE=1 CFG_SLEEP_MODE=PWR_MODE_SLEEP USE_ROMSYM_ALIAS=1  HOST_CONFIG=6</Define>
         <Undefine/>
         <Optim>Optimize size (-Os)</Optim>
         <DebugLevel>Maximum (-g3)</DebugLevel>
-        <IncludePath>$(ProjectPath);$(ProjectPath)/../../../components/arch/ck802;$(ProjectPath)/../../../components/ble/controller;$(ProjectPath)/../../../components/ble/hci;$(ProjectPath)/../../../components/ble/host;$(ProjectPath)/../../../components/ble/include;$(ProjectPath)/../../../components/driver/include;$(ProjectPath)/../../../components/inc;$(ProjectPath)/../../../components/libraries/crc16;$(ProjectPath)/../../../components/libraries/dfl;$(ProjectPath)/../../../components/libraries/dwc;$(ProjectPath)/../../../components/libraries/secure;$(ProjectPath)/../../../components/osal/include;$(ProjectPath)/../../../misc;$(ProjectPath)/../src_patch;$(ProjectPath)/ck802/include</IncludePath>
+        <IncludePath>$(ProjectPath);$(ProjectPath)/../../../../components/arch/ck802;$(ProjectPath)/../../../../components/ble/controller;$(ProjectPath)/../../../../components/ble/hci;$(ProjectPath)/../../../../components/ble/host;$(ProjectPath)/../../../../components/ble/include;$(ProjectPath)/../../../../components/driver/include;$(ProjectPath)/../../../../components/inc;$(ProjectPath)/../../../../components/libraries/crc16;$(ProjectPath)/../../../../components/libraries/dfl;$(ProjectPath)/../../../../components/libraries/dwc;$(ProjectPath)/../../../../components/libraries/secure;$(ProjectPath)/../../../../components/osal/include;$(ProjectPath)/../../../../components/profiles/DevInfo;$(ProjectPath)/../../../../components/profiles/Roles;$(ProjectPath)/../../../../components/profiles/SimpleProfile;$(ProjectPath)/../../../../misc;$(ProjectPath)/../source;$(ProjectPath)/ck802/include;$(ProjectPath)/driver/include;$(ProjectPath)/include</IncludePath>
         <OtherFlags>-ffunction-sections -fdata-sections -DADV_NCONN_CFG=0x01  -DADV_CONN_CFG=0x02  -DSCAN_CFG=0x04   -DINIT_CFG=0x08   -DBROADCASTER_CFG=0x01 -DOBSERVER_CFG=0x02  -DPERIPHERAL_CFG=0x04  -DCENTRAL_CFG=0x08 </OtherFlags>
         <Verbose>no</Verbose>
         <Ansi>no</Ansi>
@@ -190,6 +231,7 @@ BareMetal: Without RTOS</Description>
         <ResetType>Hard Reset</ResetType>
         <SoftResetVal>0</SoftResetVal>
         <ResetAfterLoad>no</ResetAfterLoad>
+        <AfterResetFile/>
         <Dumpcore>no</Dumpcore>
         <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
         <ConfigICE>
@@ -243,14 +285,4 @@ BareMetal: Without RTOS</Description>
       </Flash>
     </BuildConfig>
   </BuildConfigs>
-  <DebugSessions>
-    <watchExpressions>g_maxConnNum:1;g_pConnectionBuffer:1;pConnContext:1;(uint8 *)&amp;(connPtr-&gt;ll_buf.tx_ntrm_pkts[i]-&gt;header):1;pkt0:1;pkt1:1</watchExpressions>
-    <memoryExpressions>0x40031400;0x40030000;0x1fff0000;0x40031074</memoryExpressions>
-    <statistics>;;MHZ;</statistics>
-    <peripheralTabs/>
-    <WatchDisplayFormat>1</WatchDisplayFormat>
-    <LocalDisplayFormat>0</LocalDisplayFormat>
-    <debugLayout/>
-    <memoryTabColSizeExpressions>72:4;72:4;48:8;100:8;</memoryTabColSizeExpressions>
-  </DebugSessions>
 </Project>

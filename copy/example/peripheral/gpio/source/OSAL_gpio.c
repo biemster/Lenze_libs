@@ -31,42 +31,90 @@
 **************************************************************************************************/
 
 /**************************************************************************************************
-  Filename:       spi_demo.h
+  Filename:       OSAL_SimpleBLEPeripheral.c
   Revised:         
-  Revision:        
+  Revision:       
 
-  Description:    
+  Description:    This file contains function that allows user setup tasks
 
- 
+
+
 **************************************************************************************************/
 
-#ifndef __SPI_DEMO_H__
-#define __SPI_DEMO_H__
+/**************************************************************************************************
+ *                                            INCLUDES
+ **************************************************************************************************/
+#include "rom_sym_def.h"
+#include "OSAL.h"
+#include "OSAL_Tasks.h"
 
-#ifdef __cplusplus
-extern "C"
-{
+/* LL */
+#include "ll.h"
+
+/* HCI */
+#include "hci_tl.h"
+
+#if defined ( OSAL_CBTIMER_NUM_TASKS )
+  #include "osal_cbTimer.h"
 #endif
 
-/*********************************************************************
- * INCLUDES
- */
+/* L2CAP */
+#include "l2cap.h"
+
+/* gap */
+#include "gap.h"
+#include "gapgattserver.h"
+#include "gapbondmgr.h"
+
+/* GATT */
+#include "gatt.h"
+
+#include "gattservapp.h"
+
+/* Profiles */
+#include "peripheral.h"
+
+/* Application */
+#include "gpio_demo.h"
 
 /*********************************************************************
- * CONSTANTS
+ * GLOBAL VARIABLES
  */
+// The order in this table must be identical to the task initialization calls below in osalInitTask.
+pTaskEventHandlerFn tasksArr[] =
+{
+  LL_ProcessEvent,                                                  // task 0
+  gpio_ProcessEvent                                  // task 1
+};
 
-#define TIMER_1000_MS_EVT                                0x0001
+uint16 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+uint16 *tasksEvents;
 
-extern void spi_Init( uint8 task_id );
+/*********************************************************************
+ * FUNCTIONS
+ *********************************************************************/
 
-extern uint16 spi_ProcessEvent( uint8 task_id, uint16 events );
+/*********************************************************************
+ * @fn      osalInitTasks
+ *
+ * @brief   This function invokes the initialization function for each task.
+ *
+ * @param   void
+ *
+ * @return  none
+ */
+void osalInitTasks( void )
+{
+  uint8 taskID = 0;
 
+  tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+  osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+
+  /* LL Task */
+  LL_Init( taskID++ );
+
+  /* HCI Task */
+  gpio_Init( taskID );
+}
 /*********************************************************************
 *********************************************************************/
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif 

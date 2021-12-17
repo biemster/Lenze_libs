@@ -1,11 +1,11 @@
 ---
 #release tag name @ current repo
 ReleaseTagName: 
-- tag_v007
+- tag_v008
 
 ReleaseBranchName:
 #- PHY62XX_SDK_3.0.6
-- branch07
+- branch08
 
 #build config
 # - yaml file
@@ -19,11 +19,21 @@ ProtectFile:
   - bld_v500
 - remove_file:
   - misc\*.asm 
+  - misc\*.map 
+  - misc\*.axf 
+  - lib\aoxEst.lib 
+  - lib\sec_boot.lib
+  - lib\rf_dtm_HopeRF_*.lib
+  - '*.py'
+  - '*.txt'
 
 - remove_folder:
+  - lib\generate_lib\
   - components\libraries\change
   - cc\dd
   - example\peripheral\bugfix_test
   - example\peripheral\pwm_test
   - example\peripheral\peripheral_test
+  - example\peripheral\i2c_test
+  - example\peripheral\spi
   
