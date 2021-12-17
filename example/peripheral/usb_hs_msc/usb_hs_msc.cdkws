@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDK_Workspace Name="usb_hs_msc" Database="usb_hs_msc.tags">
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="usb_dev_hid" ConfigName="BuildSet"/>
+      <Project Name="usb_hs_msc" ConfigName="BuildSet"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CDK_Workspace>

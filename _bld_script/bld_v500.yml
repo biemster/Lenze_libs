@@ -13,25 +13,14 @@ smart_rf:
 adc:
 - example\peripheral\adc\ck802_proj\adc.cdkws
 
+gpio:
+- example\peripheral\gpio\ck802_proj\gpio.cdkws
+
 timer:
 - example\peripheral\timer\ck802_proj\timer.cdkws
 
-usb_hs_msc:
-- usb_hs_msc\usb_hs_msc\usb_hs_msc.cdkws
-
 hid:
 - example\ble_peripheral\simple_ble_HID\ck802_proj\simple_ble_HID.cdkws
-
-
-
-
-
-
-
-
-
-
-
 
 
 

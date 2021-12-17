@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Name="usb_hs_msc" Version="1" Language="C">
+  <Description/>
+  <Dependencies Name="Debug"/>
+  <VirtualDirectory Name="arch">
+    <File Name="arch/core_802.h">
+      <FileOption/>
+    </File>
+    <File Name="arch/csi_core.h">
+      <FileOption/>
+    </File>
+    <File Name="arch/csi_gcc.h">
+      <FileOption/>
+    </File>
+    <File Name="arch/soc.h">
+      <FileOption/>
+    </File>
+    <File Name="arch/startup.S">
+      <FileOption/>
+    </File>
+    <File Name="arch/system.c">
+      <FileOption/>
+    </File>
+    <File Name="arch/sys_freq.h">
+      <FileOption/>
+    </File>
+    <File Name="arch/trap_c.c">
+      <FileOption/>
+    </File>
+    <File Name="arch/vectors.S">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="board">
+    <File Name="board/board_init.c">
+      <FileOption/>
+    </File>
+    <File Name="board/gcc_csky.ld">
+      <FileOption/>
+    </File>
+    <File Name="board/inter.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="commom">
+    <File Name="commom/common.c">
+      <FileOption/>
+    </File>
+    <File Name="commom/common.h">
+      <FileOption/>
+    </File>
+    <File Name="commom/descriptor.c">
+      <FileOption/>
+    </File>
+    <File Name="commom/descriptor.h">
+      <FileOption/>
+    </File>
+    <File Name="commom/hid.h">
+      <FileOption/>
+    </File>
+    <File Name="commom/string.c">
+      <FileOption/>
+    </File>
+    <File Name="commom/string.h">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="driver">
+    <VirtualDirectory Name="clock">
+      <File Name="driver/clock/clock.c">
+        <FileOption/>
+      </File>
+      <File Name="driver/clock/clock.h">
+        <FileOption/>
+      </File>
+    </VirtualDirectory>
+    <VirtualDirectory Name="gpio">
+      <File Name="driver/gpio/gpio.c">
+        <FileOption/>
+      </File>
+      <File Name="driver/gpio/gpio.h">
+        <FileOption/>
+      </File>
+    </VirtualDirectory>
+    <VirtualDirectory Name="uart">
+      <File Name="driver/uart/uart.c">
+        <FileOption/>
+      </File>
+      <File Name="driver/uart/uart.h">
+        <FileOption/>
+      </File>
+    </VirtualDirectory>
+    <VirtualDirectory Name="usb">
+      <File Name="driver/usb/usb_def.h">
+        <FileOption/>
+      </File>
+      <File Name="driver/usb/usb_hal_hcd.h">
+        <FileOption/>
+      </File>
+      <File Name="driver/usb/usb_hal_hcd.c">
+        <FileOption/>
+      </File>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="include/bus_dev.h">
+      <FileOption/>
+    </File>
+    <File Name="include/error.h">
+      <FileOption/>
+    </File>
+    <File Name="include/global_config.h">
+      <FileOption/>
+    </File>
+    <File Name="include/mcu.h">
+      <FileOption/>
+    </File>
+    <File Name="include/mcu_phy_bumbee.h">
+      <FileOption/>
+    </File>
+    <File Name="include/mcu_phy_prime.h">
+      <FileOption/>
+    </File>
+    <File Name="include/types.h">
+      <FileOption/>
+    </File>
+    <File Name="include/version.h">
+      <FileOption/>
+    </File>
+    <File Name="include/usbh_conf.h">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="log">
+    <File Name="log/log.c">
+      <FileOption/>
+    </File>
+    <File Name="log/log.h">
+      <FileOption/>
+    </File>
+    <File Name="log/printk.c">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <VirtualDirectory Name="main">
+    <File Name="main/main.c">
+      <FileOption/>
+    </File>
+    <File Name="main/misc.c">
+      <FileOption/>
+    </File>
+    <File Name="main/misc.h">
+      <FileOption/>
+    </File>
+    <File Name="main/file_operation.c">
+      <FileOption/>
+    </File>
+    <File Name="main/file_operation.h">
+      <FileOption/>
+    </File>
+    <File Name="main/usbh_conf.c">
+      <FileOption/>
+    </File>
+    <File Name="main/usbh_conf.h">
+      <FileOption/>
+    </File>
+  </VirtualDirectory>
+  <MonitorProgress>
+    <DebugLaunch>35</DebugLaunch>
+  </MonitorProgress>
+  <VirtualDirectory Name="FatFs">
+    <VirtualDirectory Name="src">
+      <File Name="FatFs/src/diskio.c">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/diskio.h">
+        <FileOption/>
+      </File>
+      <VirtualDirectory Name="drivers">
+        <File Name="FatFs/src/drivers/usbh_diskio.c">
+          <FileOption/>
+        </File>
+        <File Name="FatFs/src/drivers/usbh_diskio.h">
+          <FileOption/>
+        </File>
+      </VirtualDirectory>
+      <File Name="FatFs/src/ff.c">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/ff.h">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/ffconf.h">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/ff_gen_drv.c">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/ff_gen_drv.h">
+        <FileOption/>
+      </File>
+      <File Name="FatFs/src/integer.h">
+        <FileOption/>
+      </File>
+      <VirtualDirectory Name="option">
+        <File Name="FatFs/src/option/syscall.c">
+          <FileOption/>
+        </File>
+        <File Name="FatFs/src/option/unicode.c">
+          <FileOption/>
+        </File>
+      </VirtualDirectory>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="usbh">
+    <VirtualDirectory Name="Class">
+      <VirtualDirectory Name="MSC">
+        <VirtualDirectory Name="Inc">
+          <File Name="usbh/Class/MSC/Inc/usbh_msc.h">
+            <FileOption/>
+          </File>
+          <File Name="usbh/Class/MSC/Inc/usbh_msc_bot.h">
+            <FileOption/>
+          </File>
+          <File Name="usbh/Class/MSC/Inc/usbh_msc_scsi.h">
+            <FileOption/>
+          </File>
+        </VirtualDirectory>
+        <VirtualDirectory Name="Src">
+          <File Name="usbh/Class/MSC/Src/usbh_msc.c">
+            <FileOption/>
+          </File>
+          <File Name="usbh/Class/MSC/Src/usbh_msc_bot.c">
+            <FileOption/>
+          </File>
+          <File Name="usbh/Class/MSC/Src/usbh_msc_scsi.c">
+            <FileOption/>
+          </File>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Core">
+      <VirtualDirectory Name="Inc">
+        <File Name="usbh/Core/Inc/usbh_core.h">
+          <FileOption/>
+        </File>
+        <File Name="usbh/Core/Inc/usbh_ctlreq.h">
+          <FileOption/>
+        </File>
+        <File Name="usbh/Core/Inc/usbh_def.h">
+          <FileOption/>
+        </File>
+        <File Name="usbh/Core/Inc/usbh_ioreq.h">
+          <FileOption/>
+        </File>
+      </VirtualDirectory>
+      <VirtualDirectory Name="Src">
+        <File Name="usbh/Core/Src/usbh_core.c">
+          <FileOption/>
+        </File>
+        <File Name="usbh/Core/Src/usbh_ctlreq.c">
+          <FileOption/>
+        </File>
+        <File Name="usbh/Core/Src/usbh_ioreq.c">
+          <FileOption/>
+        </File>
+      </VirtualDirectory>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <BuildConfigs>
+    <BuildConfig Name="BuildSet">
+      <Target>
+        <ROMBank Selected="1">
+          <ROM1>
+            <InUse>yes</InUse>
+            <Start>0x0</Start>
+            <Size>0x50000</Size>
+          </ROM1>
+          <ROM2>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM2>
+          <ROM3>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM3>
+          <ROM4>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM4>
+          <ROM5>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+          </ROM5>
+        </ROMBank>
+        <RAMBank>
+          <RAM1>
+            <InUse>yes</InUse>
+            <Start>0x1FFF0000</Start>
+            <Size>0xc000</Size>
+            <Init>yes</Init>
+          </RAM1>
+          <RAM2>
+            <InUse>no</InUse>
+            <Start>0x50000000</Start>
+            <Size>0x800000</Size>
+            <Init>yes</Init>
+          </RAM2>
+          <RAM3>
+            <InUse>no</InUse>
+            <Start>0x60000000</Start>
+            <Size>0x20000</Size>
+            <Init>yes</Init>
+          </RAM3>
+          <RAM4>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM4>
+          <RAM5>
+            <InUse>no</InUse>
+            <Start/>
+            <Size/>
+            <Init>yes</Init>
+          </RAM5>
+        </RAMBank>
+        <CPU>ck802</CPU>
+        <UseMiniLib>yes</UseMiniLib>
+        <Endian>little</Endian>
+        <UseHardFloat>no</UseHardFloat>
+        <UseEnhancedLRW>no</UseEnhancedLRW>
+        <UseContinueBuild>no</UseContinueBuild>
+        <UseSemiHost>no</UseSemiHost>
+      </Target>
+      <Output>
+        <OutputName>$(ProjectName)</OutputName>
+        <Type>Executable</Type>
+        <CreateHexFile>yes</CreateHexFile>
+        <CreateBinFile>yes</CreateBinFile>
+        <Preprocessor>yes</Preprocessor>
+        <Disassmeble>yes</Disassmeble>
+        <CallGraph>no</CallGraph>
+        <Map>no</Map>
+      </Output>
+      <User>
+        <BeforeCompile>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </BeforeCompile>
+        <BeforeMake>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </BeforeMake>
+        <AfterMake>
+          <RunUserProg>no</RunUserProg>
+          <UserProgName/>
+        </AfterMake>
+      </User>
+      <Compiler>
+        <Define>PHY_MCU_TYPE=MCU_BUMBEE_CK802 MAIN_HAS_NOARGC MAIN_HAS_NORETURN OSAL_CBTIMER_NUM_TASKS=1 HCI_TL_NONE=1 OSALMEM_METRICS=0  </Define>
+        <Undefine/>
+        <Optim>Optimize more (-O2)</Optim>
+        <DebugLevel>Default (-g)</DebugLevel>
+        <IncludePath>$(CDKPath)/CSKY/csi/csi_core/csi_cdk/;$(CDKPath)/CSKY/csi/csi_core/include/;$(CDKPath)/CSKY/csi/csi_driver/include/;$(ProjectPath);$(ProjectPath)//arch;$(ProjectPath)//commom;$(ProjectPath)//include;$(ProjectPath)//log;$(ProjectPath)/FatFs/src;$(ProjectPath)/FatFs/src/drivers;$(ProjectPath)/driver/clock;$(ProjectPath)/driver/gpio;$(ProjectPath)/driver/uart;$(ProjectPath)/driver/usb;$(ProjectPath)/usbh/Class/MSC/Inc;$(ProjectPath)/usbh/Core/Inc</IncludePath>
+        <OtherFlags>-Wnull-dereference -ffunction-sections -fdata-sections</OtherFlags>
+        <Verbose>no</Verbose>
+        <Ansi>no</Ansi>
+        <Syntax>no</Syntax>
+        <Pedantic>no</Pedantic>
+        <PedanticErr>no</PedanticErr>
+        <InhibitWarn>no</InhibitWarn>
+        <AllWarn>yes</AllWarn>
+        <WarnErr>no</WarnErr>
+        <OneElfS>no</OneElfS>
+        <Fstrict>no</Fstrict>
+      </Compiler>
+      <Asm>
+        <Define/>
+        <Undefine/>
+        <IncludePath>$(CDKPath)/CSKY/csi/csi_core/csi_cdk/;$(CDKPath)/CSKY/csi/csi_core/include/;$(CDKPath)/CSKY/csi/csi_driver/include/;$(ProjectPath);$(ProjectPath)//arch;$(ProjectPath)//commom;$(ProjectPath)//include;$(ProjectPath)//log;$(ProjectPath)/FatFs/src;$(ProjectPath)/FatFs/src/drivers;$(ProjectPath)/driver/clock;$(ProjectPath)/driver/gpio;$(ProjectPath)/driver/uart;$(ProjectPath)/driver/usb;$(ProjectPath)/usbh/Class/MSC/Inc;$(ProjectPath)/usbh/Core/Inc</IncludePath>
+        <OtherFlags/>
+        <DebugLevel>gdwarf2</DebugLevel>
+      </Asm>
+      <Linker>
+        <Garbage>yes</Garbage>
+        <Garbage2>yes</Garbage2>
+        <LDFile>$(ProjectPath)/board/gcc_csky.ld</LDFile>
+        <LibName>m</LibName>
+        <LibPath/>
+        <OtherFlags>-Wl,-zmax-page-size=1024</OtherFlags>
+        <AutoLDFile>no</AutoLDFile>
+        <LinkType/>
+      </Linker>
+      <Debug>
+        <LoadApplicationAtStartup>yes</LoadApplicationAtStartup>
+        <Connector>ICE</Connector>
+        <StopAt>yes</StopAt>
+        <StopAtText>main</StopAtText>
+        <InitFile>$(ProjectPath)/utilities/gdb.init</InitFile>
+        <AfterLoadFile/>
+        <AutoRun>yes</AutoRun>
+        <ResetType>Hard Reset</ResetType>
+        <SoftResetVal>0</SoftResetVal>
+        <ResetAfterLoad>no</ResetAfterLoad>
+        <Dumpcore>no</Dumpcore>
+        <DumpcoreText>$(ProjectPath)/$(ProjectName).cdkcore</DumpcoreText>
+        <ConfigICE>
+          <IP>localhost</IP>
+          <PORT>1025</PORT>
+          <CPUNumber>0</CPUNumber>
+          <Clock>12000</Clock>
+          <Delay>10</Delay>
+          <WaitReset>50</WaitReset>
+          <DDC>yes</DDC>
+          <TRST>no</TRST>
+          <DebugPrint>no</DebugPrint>
+          <Connect>Normal</Connect>
+          <ResetType>soft</ResetType>
+          <SoftResetVal>0</SoftResetVal>
+          <RTOSType>None</RTOSType>
+          <DownloadToFlash>no</DownloadToFlash>
+          <ResetAfterConnect>yes</ResetAfterConnect>
+          <GDBName/>
+          <GDBServerType>Local</GDBServerType>
+          <OtherFlags/>
+        </ConfigICE>
+        <ConfigSIM>
+          <SIMTarget/>
+          <OtherFlags/>
+          <NoGraphic>yes</NoGraphic>
+          <Log>no</Log>
+          <SimTrace>no</SimTrace>
+        </ConfigSIM>
+        <ConfigOpenOCD>
+          <OpenOCDExecutablePath/>
+          <OpenOCDTelnetPortEnable>no</OpenOCDTelnetPortEnable>
+          <OpenOCDTelnetPort>4444</OpenOCDTelnetPort>
+          <OpenOCDTclPortEnable>no</OpenOCDTclPortEnable>
+          <OpenOCDTclPort>6666</OpenOCDTclPort>
+          <OpenOCDConfigOptions/>
+        </ConfigOpenOCD>
+      </Debug>
+      <Flash>
+        <InitFile/>
+        <Erase>Do Not Erase</Erase>
+        <Algorithms Path=""/>
+        <Program>no</Program>
+        <Verify>no</Verify>
+        <ResetAndRun>yes</ResetAndRun>
+        <ResetType>Soft Reset</ResetType>
+        <SoftResetVal>0</SoftResetVal>
+        <External>no</External>
+        <Command/>
+        <Arguments/>
+      </Flash>
+    </BuildConfig>
+  </BuildConfigs>
+  <DebugSessions>
+    <watchExpressions>fifo:1;pbuf:1;trans_size:1;fifo:1;data:1;fifo:1</watchExpressions>
+    <memoryExpressions>1fff1b1c;;;</memoryExpressions>
+    <statistics>;;MHZ;</statistics>
+    <peripheralTabs/>
+    <WatchDisplayFormat>1</WatchDisplayFormat>
+    <LocalDisplayFormat>1</LocalDisplayFormat>
+    <debugLayout/>
+    <memoryTabColSizeExpressions>100:8;100:8;100:8;100:8;</memoryTabColSizeExpressions>
+  </DebugSessions>
+</Project>

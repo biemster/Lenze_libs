@@ -216,8 +216,10 @@ class build:
 		return True'''
 		#if():#check warning
 		
-	def find_str(self, name, str):
-		with open('_bld.txt', 'r') as f:
+	def find_str(self, fname, name, str):
+		flog = open(fname, "r")
+		#with open('_bld.txt', 'r') as f:
+		with flog as f:
 			counts = 0
 			for line in f.readlines():
 				str1 = line.count(str)
@@ -225,8 +227,10 @@ class build:
 			print("%s:%d" %(name, counts))
 	
 	
-	def read_log(self, keyword):
-		with open('_bld.txt', 'r') as file:
+	def read_log(self, fname, keyword):
+		flog = open(fname, "r")
+		#with open('_bld.txt', 'r') as file:
+		with flog as file:
 			counts = 0
 			for line in file.readlines():
 				keywords = line.count(keyword)
@@ -248,13 +252,14 @@ class build:
 			return False
 		
 		log_list = []
-		flog = open('_bld.txt', 'r')
+		fname = '_bld.txt'
+		flog = open(fname, 'r')
 		
-		errlog = self.find_str('Total Error', ': error:')
-		warnlog = self.find_str('Total Warning', ': warning:')
+		errlog = self.find_str(fname, 'Total Error', ': error:')
+		warnlog = self.find_str(fname, 'Total Warning', ': warning:')
 		
-		errnum = self.read_log(': error:')
-		warnum = self.read_log(': warning:')
+		errnum = self.read_log(fname, ': error:')
+		warnum = self.read_log(fname, ': warning:')
 		#print('%d\n' %(errnum))
 		
 		compile_flg = False
@@ -511,7 +516,7 @@ def get_param(param):
 def help(prj = None):
 	print('sdk_build.py: Build PhyPlus BLE SDK')
 	print('useage:')
-	print('	sdk_build.py [-help [projectname]] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [-b [projectname]|[all]]') 
+	print('	sdk_build.py [-help [projectname]] [-clear] [-ver 1.1.1.b] [-path sdk_path][-list] [[-l ymlfile] [-b [projectname]|[all]]]') 
 	
 def files(curr_dir, ext):
 	for i in glob.glob(os.path.join(curr_dir, ext)):
@@ -581,7 +586,6 @@ def build_single(path, blditm, logfile= None):
 	#bld.new_hex(['bin\\ota.hex','bin\\ota1.hex'])
 	ret =bld(cfg, output)
 	return ret
-
 
 def read_l(keyword):
 	with open('_bld.txt', 'r') as file:

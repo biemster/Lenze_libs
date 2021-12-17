@@ -12,8 +12,8 @@ from datetime import datetime
 #giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
 #gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
 #for test
-giturl = 'git@github.com:duanmubingshuai/project.git'
-gitreleaseurl = 'git@github.com:duanmubingshuai/hello_w.git'
+giturl = 'git@192.168.1.11:gecko/jack_sdk.git'
+gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_jack_sdk.git'
 #locallocation = '../git_python/clone3'
 
 locallocation = os.path.dirname(os.path.realpath(__file__))
@@ -231,25 +231,6 @@ def sdk_rls(args):
     '''
     return
 
-def build_result(logfile):
-    f = open(logfile, "r")
-    builderror = 0
-    while (True):
-        logstr = f.readline()
-        if (len(logstr) == 0):
-            break  # read conpleted
-        if (logstr.find('Error(s)') > 0 and logstr.find('Warning(s)') > 0):
-            errnum = int(logstr[logstr.find('-') + 1:logstr.find('Error(s)')])
-            warnum = int(logstr[logstr.find('Error(s)') + 9: logstr.find('Warning(s)')])
-            logstr = ''.join(logstr)
-            prjname = logstr.split('\\')[2].split('.')[0]
-            if (errnum + warnum):
-                print('Error %d, Warning %d' % (errnum, warnum))
-                print('project name', prjname)
-                if (errnum):
-                    print('error in ', prjname)
-                    builderror = builderror + errnum
-    return builderror
 def log_err_check(fname):
     flog=open(fname,"r")
     flog.seek(0,0)
@@ -259,7 +240,7 @@ def log_err_check(fname):
         if(len(logstr) == 0):
             break #read completed
         if(logstr.find('Error(s)')>0 and logstr.find('Warning(s)')>0 ):
-            errnum =errnum+ int(logstr[logstr.find('-')+1:logstr.find('Error(s)')])
+            errnum = errnum+ int(logstr[logstr.find('-')+1:logstr.find('Error(s)')])
             warnum = warnum+int(logstr[logstr.find('Error(s)')+9: logstr.find('Warning(s)')])
         if(logstr.find('prj build fail check _bld.txt')>0):
             failnum = failnum+1
@@ -327,9 +308,9 @@ def protectfile(cfg):
     print(cfg)
     bld = get_bld_path(rls_config(cfg[0]['rls_example'][0]))
     print(bld)
-    cur=get_dir_path(os.path.join(locallocation,'example'),3)
-    remove_example=find_del_fold(bld,cur)
-    
+    #cur=get_dir_path(os.path.join(locallocation,'example'),3)
+    #remove_example=find_del_fold(bld,cur)
+    '''
     for del_path in remove_example:
         # print(del_path)
         #f_path = 'aliGenie_bleMesh'
@@ -340,7 +321,7 @@ def protectfile(cfg):
             cmd = 'rd /s /q ' + del_path
             print(cmd)
             validcmd(cmd)
-    
+    '''
     for del_path in cfg[2]['remove_folder']:
         #libsrcpath = 'clonefile'+ '\\' + del_path[1]  #clone file cannot have a space inside
         libsrcpath = locallocation.split('/')[-1] + '\\' + del_path  # clone file cannot have a space inside
