@@ -1,0 +1,35 @@
+---
+#release tag name @ current repo
+ReleaseTagName: 
+- tag_v501
+
+ReleaseBranchName:
+- jack_sdk_v500
+
+#build config
+# - yaml file
+BuildConfig: 
+- bld_v500
+
+#Protect file config
+ProtectFile:
+- rls_example:
+  - bld_v500
+- remove_file:
+  - misc\*.asm 
+  - misc\*.map 
+  - misc\*.axf 
+  - lib\aoxEst.lib 
+  - lib\sec_boot.lib
+  - lib\rf_dtm_HopeRF_*.lib
+  - '*.py'
+  - '*.txt'
+
+- remove_folder:
+  - lib\generate_lib\
+  - example\peripheral\bugfix_test
+  - example\peripheral\pwm_test
+  - example\peripheral\peripheral_test
+  - example\peripheral\i2c_test
+  - example\peripheral\spi
+  

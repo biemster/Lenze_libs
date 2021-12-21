@@ -1,0 +1,15 @@
+----------------------------------------------------------------------------------------
+ProjName: rf
+
+Building...
+..\lib\generate_lib\ck802_proj\rf.cdkws
+Time Cost------                   T0 --------     0.243 ms
+Time Cost------          Config Proj --------     0.027 ms
+Time Cost------            CMD Build --------  2013.984 ms
+Time Cost------          Build Check --------  1004.247 ms
+Time Cost------              Restore --------     0.148 ms
+Time Cost------             Copy Hex --------    32.452 ms
+Time Cost------   All Build Finished --------  3062.562 ms
+----------------------------------------------------------------------------------------
+Error 0 , Warning 0: 
+

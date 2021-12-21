@@ -1,0 +1,14 @@
+----------------------------------------------------------------------------------------
+ProjName: adc
+
+Building...
+..\example\peripheral\adc\ck802_proj\adc.cdkws
+Time Cost------                   T0 --------     0.243 ms
+Time Cost------          Config Proj --------     0.048 ms
+Time Cost------            CMD Build --------  5615.098 ms
+Time Cost------          Build Check --------  1013.970 ms
+Time Cost------              Restore --------     0.095 ms
+Time Cost------   All Build Finished --------  6630.329 ms
+----------------------------------------------------------------------------------------
+Error 0 , Warning 0: 
+

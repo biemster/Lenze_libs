@@ -1,0 +1,29 @@
+---
+
+rf: 
+- lib\generate_lib\ck802_proj\rf.cdkws
+- [Obj\rf.a, ..\..\librf.a]
+
+sbp:
+- example\ble_peripheral\simple_ble_peripheral\ck802_proj\simple_ble_peripheral.cdkws
+
+smart_rf:
+- example\PhyPlusPhy\smart_rf\ck802_proj\smart_rf.cdkws
+
+adc:
+- example\peripheral\adc\ck802_proj\adc.cdkws
+
+timer:
+- example\peripheral\timer\ck802_proj\timer.cdkws
+
+hid:
+- example\ble_peripheral\simple_ble_HID\ck802_proj\simple_ble_HID.cdkws
+
+ble_host:
+- lib\generate_ble_host_lib\ble_host.uvprojx
+- {'MAX_NUM_LL_CONN':'1'}
+- [Objects\ble_host.lib, ..\ble_host.lib]
+
+
+
+

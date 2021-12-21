@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Static Call Graph - [Obj/adc.elf]</title>
+</head>
+<body><hr>
+<h1>Static Call Graph for image Obj/adc.elf</h1><hr>
+<br>
+<p>#&#060CALLGRAPH&#062# Csky GNU Linker<br>
+<h3>Maximum Stack Usage = 268 bytes + Unknown(Cycles, Untraceable Function Pointers)</h3>
+<h3>Call Chain for Maximum Stack Depth:</h3>
+Reset_Handler &rArr; main &rArr; dbg_printf_init  </ul>
+<h3>Mutually Recursive functions</h3><ul>
+</ul><h3>Function Pointers</h3><ul>
+<li><a href="#[0]">board_init</a> from Obj/ck802_board_init.o(.text.board_init) referenced from Obj/ck802_startup.o(.text)
+<li><a href="#[4]">SystemInit</a> from Obj/ck802_system.o(.text.SystemInit) referenced from Obj/ck802_startup.o(.text)
+<li><a href="#[a]">hal_rtc_clock_config</a> from Obj/source_clock.o(.text.hal_rtc_clock_config) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[e]">dbg_printf</a> from Obj/source_my_printf.o(.text.dbg_printf) referenced from Obj/ck802_trap_c.o(.text.trap_c)
+<li><a href="#[f]">dbg_printf_init</a> from Obj/source_my_printf.o(.text.dbg_printf_init) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[12]">hal_pwrmgr_init</a> from Obj/source_pwrmgr.o(.text.hal_pwrmgr_init) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[13]">hal_watchdog_config</a> from Obj/source_watchdog.o(.text.hal_watchdog_config) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[14]">clear_adcc_cfg</a> from Obj/source_adc.o(.text.clear_adcc_cfg) referenced from Obj/source_adc.o(.text.hal_adc_init)
+<li><a href="#[16]">hal_adc_init</a> from Obj/source_adc.o(.text.hal_adc_init) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[17]">hal_adc_start</a> from Obj/source_adc.o(.text.hal_adc_start) referenced from Obj/source_adc_demo.o(.text.adcMeasureTask)
+<li><a href="#[18]">hal_adc_config_channel</a> from Obj/source_adc.o(.text.hal_adc_config_channel) referenced from Obj/source_adc_demo.o(.text.adcMeasureTask)
+<li><a href="#[19]">hal_adc_stop</a> from Obj/source_adc.o(.text.hal_adc_stop) referenced from Obj/source_adc.o(.text.hal_ADC_IRQ)
+<li><a href="#[1b]">hal_adc_value_cal</a> from Obj/source_adc.o(.text.hal_adc_value_cal) referenced from Obj/source_adc_demo.o(.text.adc_evt)
+<li><a href="#[1d]">hal_otp_flash_init</a> from Obj/source_flash.o(.text.hal_otp_flash_init) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[1e]">main</a> from Obj/source_main.o(.text.startup.main) referenced from Obj/ck802_startup.o(.text)
+<li><a href="#[20]">adcMeasureTask</a> from Obj/source_adc_demo.o(.text.adcMeasureTask) referenced from Obj/source_adc_demo.o(.text.adc_Init)
+<li><a href="#[21]">adc_Init</a> from Obj/source_adc_demo.o(.text.adc_Init) referenced from Obj/source_OSAL_adc.o(.text.osalInitTasks)
+<li><a href="#[23]">app_main</a> from Obj/source_adc_Main.o(.text.app_main) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[25]">__wdt_init</a> from src_patch_patch.o(.text.__wdt_init) referenced from src_patch_patch.o(.text.wakeup_init1)
+<li><a href="#[28]">ll_hw_write_tfifo1</a> from src_patch_patch.o(.text.ll_hw_write_tfifo1) referenced from src_patch_patch.o(.text.ll_generateTxBuffer1)
+<li><a href="#[2a]">init_config</a> from src_patch_patch.o(.text.init_config) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[2c]">hal_rom_boot_init</a> from src_patch_patch.o(.text.hal_rom_boot_init) referenced from Obj/source_main.o(.text.startup.main)
+<li><a href="#[3a]">___gnu_csky_case_uqi</a> from _csky_case_uqi.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_start)
+<li><a href="#[3b]">_fpadd_parts</a> from _addsub_sf.o(.text) referenced from _addsub_sf.o(.text)
+<li><a href="#[3c]">__addsf3</a> from _addsub_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[3d]">__subsf3</a> from _addsub_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[3e]">__mulsf3</a> from _mul_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[3f]">__divsf3</a> from _div_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[40]">__floatsisf</a> from _si_to_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[41]">__fixsfsi</a> from _sf_to_si.o(.text) referenced from Obj/source_adc_demo.o(.text.adc_evt)
+<li><a href="#[42]">__extendsfdf2</a> from _sf_to_df.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[43]">__floatunsisf</a> from _usi_to_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[44]">__muldf3</a> from _mul_df.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[45]">__divdf3</a> from _div_df.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[46]">__floatsidf</a> from _si_to_df.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[47]">__make_dp</a> from _make_df.o(.text) referenced from _sf_to_df.o(.text)
+<li><a href="#[48]">__truncdfsf2</a> from _df_to_sf.o(.text) referenced from Obj/source_adc.o(.text.hal_adc_value_cal)
+<li><a href="#[49]">__muldi3</a> from _muldi3.o(.text) referenced from _mul_sf.o(.text)
+<li><a href="#[4a]">__pack_f</a> from _pack_sf.o(.text) referenced from _addsub_sf.o(.text)
+<li><a href="#[4b]">__unpack_f</a> from _unpack_sf.o(.text) referenced from _addsub_sf.o(.text)
+<li><a href="#[4c]">__make_fp</a> from _make_sf.o(.text) referenced from _df_to_sf.o(.text)
+<li><a href="#[4d]">__pack_d</a> from _pack_df.o(.text) referenced from _mul_df.o(.text)
+<li><a href="#[4e]">__unpack_d</a> from _unpack_df.o(.text) referenced from _mul_df.o(.text)
+<li><a href="#[50]">memset</a> from memset_fast.o(.text) referenced from Obj/source_my_printf.o(.text.dbg_printf_init)
+<li><a href="#[52]">memcpy</a> from memcpy_fast.o(.text) referenced from Obj/source_my_printf.o(.text.dbg_printf_init)
+</ul>
+<h3>Global Symbols</h3>
+<p><strong><a name="[0]"></a>board_init</strong>(2 bytes, Stack size 0 btyes, Obj/ck802_board_init.o(.text.board_init))<br>
+<br>[Called By]<ul>
+<li><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</ul>
+<p><strong><a name="[1]"></a>Reset_Handler</strong>(70 bytes, Stack size 0 btyes, Obj/ck802_startup.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 268 
+<li>Call Chain = Reset_Handler &rArr; main &rArr; dbg_printf_init  </ul>
+<br>[Calls]<ul>
+<li><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
+<li><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_init
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[2]"></a>cpu_intrpt_save</strong>(0 bytes, Stack size 0 btyes, Obj/ck802_startup.o(.text.cpu_intrpt_save))<br>
+<p><strong><a name="[3]"></a>cpu_intrpt_restore</strong>(0 bytes, Stack size 0 btyes, Obj/ck802_startup.o(.text.cpu_intrpt_restore))<br>
+<p><strong><a name="[4]"></a>SystemInit</strong>(44 bytes, Stack size 4 btyes, Obj/ck802_system.o(.text.SystemInit))<br>
+<br>[Called By]<ul>
+<li><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</ul>
+<p><strong><a name="[5]"></a>trap_c</strong>(124 bytes, Stack size 24 btyes, Obj/ck802_trap_c.o(.text.trap_c))<br>
+<br>[Stack]<ul><li>Max Depth = 44 
+<li>Call Chain = trap_c &rArr; dbg_printf </ul>
+<br>[Calls]<ul>
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+</ul>
+<p><strong><a name="[6]"></a>trap</strong>(0 bytes, Stack size 0 btyes, Obj/ck802_vectors.o(.text))<br>
+<p><strong><a name="[7]"></a>Default_Handler</strong>(2 bytes, Stack size 0 btyes, Obj/ck802_vectors.o(.text))<br>
+<p><strong><a name="[8]"></a>trap0_handler</strong>(2 bytes, Stack size 0 btyes, Obj/ck802_vectors.o(.text))<br>
+<p><strong><a name="[9]"></a>tspend_handler</strong>(2 bytes, Stack size 0 btyes, Obj/ck802_vectors.o(.text))<br>
+<p><strong><a name="[a]"></a>hal_rtc_clock_config</strong>(136 bytes, Stack size 4 btyes, Obj/source_clock.o(.text.hal_rtc_clock_config))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[b]"></a>hal_system_soft_reset</strong>(28 bytes, Stack size 0 btyes, Obj/source_clock.o(.text.hal_system_soft_reset))<br>
+<p><strong><a name="[d]"></a>dbg_UART0_IRQHandler</strong>(8 bytes, Stack size 4 btyes, Obj/source_my_printf.o(.text.dbg_UART0_IRQHandler))<br>
+<p><strong><a name="[e]"></a>dbg_printf</strong>(36 bytes, Stack size 20 btyes, Obj/source_my_printf.o(.text.dbg_printf))<br>
+<br>[Called By]<ul>
+<li><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;trap_c
+<li><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_init
+<li><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_start
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<li><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_evt
+<li><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcMeasureTask
+</ul>
+<p><strong><a name="[f]"></a>dbg_printf_init</strong>(84 bytes, Stack size 56 btyes, Obj/source_my_printf.o(.text.dbg_printf_init))<br>
+<br>[Calls]<ul>
+<li><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memset
+<li><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcpy
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[10]"></a>my_dump_byte</strong>(44 bytes, Stack size 0 btyes, Obj/source_my_printf.o(.text.my_dump_byte))<br>
+<p><strong><a name="[11]"></a>osal_idle_task</strong>(20 bytes, Stack size 0 btyes, Obj/source_pwrmgr.o(.text.osal_idle_task))<br>
+<p><strong><a name="[12]"></a>hal_pwrmgr_init</strong>(44 bytes, Stack size 4 btyes, Obj/source_pwrmgr.o(.text.hal_pwrmgr_init))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[13]"></a>hal_watchdog_config</strong>(4 bytes, Stack size 0 btyes, Obj/source_watchdog.o(.text.hal_watchdog_config))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[16]"></a>hal_adc_init</strong>(116 bytes, Stack size 8 btyes, Obj/source_adc.o(.text.hal_adc_init))<br>
+<br>[Stack]<ul><li>Max Depth = 28 
+<li>Call Chain = hal_adc_init &rArr; dbg_printf </ul>
+<br>[Calls]<ul>
+<li><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_adcc_cfg
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[17]"></a>hal_adc_start</strong>(220 bytes, Stack size 16 btyes, Obj/source_adc.o(.text.hal_adc_start))<br>
+<br>[Stack]<ul><li>Max Depth = 36 
+<li>Call Chain = hal_adc_start &rArr; dbg_printf </ul>
+<br>[Calls]<ul>
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+<li><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;___gnu_csky_case_uqi
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcMeasureTask
+</ul>
+<p><strong><a name="[18]"></a>hal_adc_config_channel</strong>(796 bytes, Stack size 56 btyes, Obj/source_adc.o(.text.hal_adc_config_channel))<br>
+<br>[Calls]<ul>
+<li><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_adcc_cfg
+<li><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;___gnu_csky_case_uqi
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcMeasureTask
+</ul>
+<p><strong><a name="[19]"></a>hal_adc_stop</strong>(232 bytes, Stack size 20 btyes, Obj/source_adc.o(.text.hal_adc_stop))<br>
+<br>[Calls]<ul>
+<li><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_adcc_cfg
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_ADC_IRQ
+</ul>
+<p><strong><a name="[1a]"></a>hal_ADC_IRQ</strong>(208 bytes, Stack size 104 btyes, Obj/source_adc.o(.text.hal_ADC_IRQ))<br>
+<br>[Stack]<ul><li>Max Depth = 124 
+<li>Call Chain = hal_ADC_IRQ &rArr; hal_adc_stop </ul>
+<br>[Calls]<ul>
+<li><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_stop
+</ul>
+<p><strong><a name="[1b]"></a>hal_adc_value_cal</strong>(312 bytes, Stack size 36 btyes, Obj/source_adc.o(.text.hal_adc_value_cal))<br>
+<br>[Stack]<ul><li>Max Depth = 192 
+<li>Call Chain = hal_adc_value_cal &rArr; __muldf3 &rArr; __pack_d  </ul>
+<br>[Calls]<ul>
+<li><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatsisf
+<li><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatunsisf
+<li><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divsf3
+<li><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatsidf
+<li><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldf3
+<li><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__truncdfsf2
+<li><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__subsf3
+<li><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__addsf3
+<li><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__extendsfdf2
+<li><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mulsf3
+<li><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divdf3
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_evt
+</ul>
+<p><strong><a name="[1d]"></a>hal_otp_flash_init</strong>(48 bytes, Stack size 4 btyes, Obj/source_flash.o(.text.hal_otp_flash_init))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[1e]"></a>main</strong>(424 bytes, Stack size 212 btyes, Obj/source_main.o(.text.startup.main))<br>
+<br>[Stack]<ul><li>Max Depth = 268 
+<li>Call Chain = main &rArr; dbg_printf_init </ul>
+<br>[Calls]<ul>
+<li><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_watchdog_config
+<li><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_config
+<li><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rom_boot_init
+<li><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcpy
+<li><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rtc_clock_config
+<li><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_pwrmgr_init
+<li><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_otp_flash_init
+<li><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf_init
+<li><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_init
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+<li><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_main
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</ul>
+<p><strong><a name="[21]"></a>adc_Init</strong>(16 bytes, Stack size 4 btyes, Obj/source_adc_demo.o(.text.adc_Init))<br>
+<br>[Stack]<ul><li>Max Depth = 76 
+<li>Call Chain = adc_Init &rArr; adcMeasureTask &rArr; hal_adc_config_channel  </ul>
+<br>[Calls]<ul>
+<li><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcMeasureTask
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osalInitTasks
+</ul>
+<p><strong><a name="[22]"></a>adc_ProcessEvent</strong>(80 bytes, Stack size 12 btyes, Obj/source_adc_demo.o(.text.adc_ProcessEvent))<br>
+<br>[Stack]<ul><li>Max Depth = 84 
+<li>Call Chain = adc_ProcessEvent &rArr; adcMeasureTask &rArr; hal_adc_config_channel  </ul>
+<br>[Calls]<ul>
+<li><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcMeasureTask
+</ul>
+<p><strong><a name="[23]"></a>app_main</strong>(20 bytes, Stack size 4 btyes, Obj/source_adc_Main.o(.text.app_main))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[24]"></a>osalInitTasks</strong>(52 bytes, Stack size 8 btyes, Obj/source_OSAL_adc.o(.text.osalInitTasks))<br>
+<br>[Stack]<ul><li>Max Depth = 84 
+<li>Call Chain = osalInitTasks &rArr; adc_Init &rArr; adcMeasureTask  &rArr; hal_adc_config_channel  </ul>
+<br>[Calls]<ul>
+<li><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_Init
+</ul>
+<p><strong><a name="[25]"></a>__wdt_init</strong>(24 bytes, Stack size 4 btyes, src_patch_patch.o(.text.__wdt_init))<br>
+<br>[Called By]<ul>
+<li><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wakeup_init1
+</ul>
+<p><strong><a name="[26]"></a>wakeup_init1</strong>(12 bytes, Stack size 4 btyes, src_patch_patch.o(.text.wakeup_init1))<br>
+<br>[Stack]<ul><li>Max Depth = 8 
+<li>Call Chain = wakeup_init1 &rArr; __wdt_init </ul>
+<br>[Calls]<ul>
+<li><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__wdt_init
+</ul>
+<p><strong><a name="[27]"></a>ll_hw_go1</strong>(24 bytes, Stack size 0 btyes, src_patch_patch.o(.text.ll_hw_go1))<br>
+<p><strong><a name="[28]"></a>ll_hw_write_tfifo1</strong>(144 bytes, Stack size 28 btyes, src_patch_patch.o(.text.ll_hw_write_tfifo1))<br>
+<br>[Called By]<ul>
+<li><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ll_generateTxBuffer1
+</ul>
+<p><strong><a name="[29]"></a>ll_generateTxBuffer1</strong>(332 bytes, Stack size 24 btyes, src_patch_patch.o(.text.ll_generateTxBuffer1))<br>
+<br>[Stack]<ul><li>Max Depth = 52 
+<li>Call Chain = ll_generateTxBuffer1 &rArr; ll_hw_write_tfifo1 </ul>
+<br>[Calls]<ul>
+<li><a href="#[28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ll_hw_write_tfifo1
+</ul>
+<p><strong><a name="[2a]"></a>init_config</strong>(508 bytes, Stack size 8 btyes, src_patch_patch.o(.text.init_config))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[2b]"></a>ll_set_ble_mac_addr</strong>(16 bytes, Stack size 0 btyes, src_patch_patch.o(.text.ll_set_ble_mac_addr))<br>
+<p><strong><a name="[2c]"></a>hal_rom_boot_init</strong>(8 bytes, Stack size 4 btyes, src_patch_patch.o(.text.hal_rom_boot_init))<br>
+<br>[Called By]<ul>
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<p><strong><a name="[2d]"></a>DTM_UART_IRQHandler</strong>(84 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.DTM_UART_IRQHandler))<br>
+<p><strong><a name="[2e]"></a>rf_phy_change_cfg1</strong>(48 bytes, Stack size 8 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_change_cfg1))<br>
+<p><strong><a name="[2f]"></a>rf_phy_bb_cfg1</strong>(48 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_bb_cfg1))<br>
+<p><strong><a name="[30]"></a>rf_phy_set_txPower</strong>(52 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_set_txPower))<br>
+<p><strong><a name="[31]"></a>rf_phy_ini1</strong>(100 bytes, Stack size 4 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_ini1))<br>
+<p><strong><a name="[32]"></a>rf_phy_dtm_cmd_parse</strong>(928 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_dtm_cmd_parse))<br>
+<p><strong><a name="[33]"></a>rf_phy_dtm_evt_send</strong>(300 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_dtm_evt_send))<br>
+<p><strong><a name="[34]"></a>gen_pn_prbs9</strong>(216 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.gen_pn_prbs9))<br>
+<p><strong><a name="[35]"></a>rf_phy_dtm_ble_pkt_gen</strong>(184 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_dtm_ble_pkt_gen))<br>
+<p><strong><a name="[36]"></a>rf_phy_dtm_trigged</strong>(892 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_dtm_trigged))<br>
+<p><strong><a name="[37]"></a>rf_phy_direct_test</strong>(780 bytes, Stack size 0 btyes, src_patch_rf_phy_driver.o(.text.rf_phy_direct_test))<br>
+<p><strong><a name="[38]"></a>__div32</strong>(108 bytes, Stack size 0 btyes, _divsi3.o(.text))<br>
+<p><strong><a name="[39]"></a>__divsi3</strong>(108 bytes, Stack size 0 btyes, _divsi3.o(.text))<br>
+<p><strong><a name="[3a]"></a>___gnu_csky_case_uqi</strong>(20 bytes, Stack size 0 btyes, _csky_case_uqi.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_start
+<li><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_config_channel
+</ul>
+<p><strong><a name="[3c]"></a>__addsf3</strong>(42 bytes, Stack size 60 btyes, _addsub_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 80 
+<li>Call Chain = __addsf3 &rArr; _fpadd_parts </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+<li><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fpadd_parts
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[3d]"></a>__subsf3</strong>(50 bytes, Stack size 60 btyes, _addsub_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 80 
+<li>Call Chain = __subsf3 &rArr; _fpadd_parts </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+<li><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fpadd_parts
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[3e]"></a>__mulsf3</strong>(268 bytes, Stack size 72 btyes, _mul_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 92 
+<li>Call Chain = __mulsf3 &rArr; __muldi3 </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+<li><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldi3
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+<li><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_evt
+</ul>
+<p><strong><a name="[3f]"></a>__divsf3</strong>(188 bytes, Stack size 48 btyes, _div_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 52 
+<li>Call Chain = __divsf3 &rArr; __unpack_f </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[40]"></a>__floatsisf</strong>(82 bytes, Stack size 20 btyes, _si_to_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 24 
+<li>Call Chain = __floatsisf &rArr; __pack_f </ul>
+<br>[Calls]<ul>
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[41]"></a>__fixsfsi</strong>(80 bytes, Stack size 24 btyes, _sf_to_si.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 28 
+<li>Call Chain = __fixsfsi &rArr; __unpack_f </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_evt
+</ul>
+<p><strong><a name="[42]"></a>__extendsfdf2</strong>(36 bytes, Stack size 32 btyes, _sf_to_df.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 92 
+<li>Call Chain = __extendsfdf2 &rArr; __make_dp &rArr; __pack_d  </ul>
+<br>[Calls]<ul>
+<li><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_f
+<li><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__make_dp
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[43]"></a>__floatunsisf</strong>(96 bytes, Stack size 20 btyes, _usi_to_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 24 
+<li>Call Chain = __floatunsisf &rArr; __pack_f </ul>
+<br>[Calls]<ul>
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[44]"></a>__muldf3</strong>(556 bytes, Stack size 128 btyes, _mul_df.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 156 
+<li>Call Chain = __muldf3 &rArr; __pack_d </ul>
+<br>[Calls]<ul>
+<li><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_d
+<li><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldi3
+<li><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_d
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[45]"></a>__divdf3</strong>(344 bytes, Stack size 92 btyes, _div_df.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 120 
+<li>Call Chain = __divdf3 &rArr; __pack_d </ul>
+<br>[Calls]<ul>
+<li><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_d
+<li><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_d
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[46]"></a>__floatsidf</strong>(104 bytes, Stack size 32 btyes, _si_to_df.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 60 
+<li>Call Chain = __floatsidf &rArr; __pack_d </ul>
+<br>[Calls]<ul>
+<li><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_d
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[47]"></a>__make_dp</strong>(40 bytes, Stack size 32 btyes, _make_df.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 60 
+<li>Call Chain = __make_dp &rArr; __pack_d </ul>
+<br>[Calls]<ul>
+<li><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_d
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__extendsfdf2
+</ul>
+<p><strong><a name="[48]"></a>__truncdfsf2</strong>(50 bytes, Stack size 32 btyes, _df_to_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 56 
+<li>Call Chain = __truncdfsf2 &rArr; __make_fp &rArr; __pack_f  </ul>
+<br>[Calls]<ul>
+<li><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__unpack_d
+<li><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__make_fp
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+</ul>
+<p><strong><a name="[49]"></a>__muldi3</strong>(68 bytes, Stack size 20 btyes, _muldi3.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mulsf3
+<li><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldf3
+</ul>
+<p><strong><a name="[4a]"></a>__pack_f</strong>(224 bytes, Stack size 4 btyes, _pack_sf.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__addsf3
+<li><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__subsf3
+<li><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mulsf3
+<li><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divsf3
+<li><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatsisf
+<li><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatunsisf
+<li><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__make_fp
+</ul>
+<p><strong><a name="[4b]"></a>__unpack_f</strong>(124 bytes, Stack size 4 btyes, _unpack_sf.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__addsf3
+<li><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__subsf3
+<li><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mulsf3
+<li><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divsf3
+<li><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fixsfsi
+<li><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__extendsfdf2
+</ul>
+<p><strong><a name="[4c]"></a>__make_fp</strong>(22 bytes, Stack size 20 btyes, _make_sf.o(.text))<br>
+<br>[Stack]<ul><li>Max Depth = 24 
+<li>Call Chain = __make_fp &rArr; __pack_f </ul>
+<br>[Calls]<ul>
+<li><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__pack_f
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__truncdfsf2
+</ul>
+<p><strong><a name="[4d]"></a>__pack_d</strong>(408 bytes, Stack size 28 btyes, _pack_df.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldf3
+<li><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divdf3
+<li><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__floatsidf
+<li><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__make_dp
+</ul>
+<p><strong><a name="[4e]"></a>__unpack_d</strong>(184 bytes, Stack size 12 btyes, _unpack_df.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__muldf3
+<li><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__divdf3
+<li><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__truncdfsf2
+</ul>
+<p><strong><a name="[4f]"></a>__memset_fast</strong>(166 bytes, Stack size 0 btyes, memset_fast.o(.text))<br>
+<p><strong><a name="[50]"></a>memset</strong>(166 bytes, Stack size 0 btyes, memset_fast.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf_init
+</ul>
+<p><strong><a name="[51]"></a>__memcpy_fast</strong>(126 bytes, Stack size 4 btyes, memcpy_fast.o(.text))<br>
+<p><strong><a name="[52]"></a>memcpy</strong>(126 bytes, Stack size 0 btyes, memcpy_fast.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf_init
+<li><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</ul>
+<h3>Local Symbols</h3>
+<p><strong><a name="[c]"></a>_uart_putc</strong>(14 bytes, Stack size 4 btyes, Obj/source_my_printf.o(.text._uart_putc))<br>
+<p><strong><a name="[14]"></a>clear_adcc_cfg</strong>(20 bytes, Stack size 0 btyes, Obj/source_adc.o(.text.clear_adcc_cfg))<br>
+<br>[Called By]<ul>
+<li><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_init
+<li><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_config_channel
+<li><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_stop
+</ul>
+<p><strong><a name="[15]"></a>adc_wakeup_hdl</strong>(28 bytes, Stack size 0 btyes, Obj/source_adc.o(.text.adc_wakeup_hdl))<br>
+<p><strong><a name="[1c]"></a>hw_otp_spif_config</strong>(60 bytes, Stack size 4 btyes, Obj/source_flash.o(.text.hw_otp_spif_config))<br>
+<p><strong><a name="[1f]"></a>adc_evt</strong>(140 bytes, Stack size 12 btyes, Obj/source_adc_demo.o(.text.adc_evt))<br>
+<br>[Stack]<ul><li>Max Depth = 204 
+<li>Call Chain = adc_evt &rArr; hal_adc_value_cal &rArr; __muldf3  &rArr; __pack_d  </ul>
+<br>[Calls]<ul>
+<li><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_value_cal
+<li><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mulsf3
+<li><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fixsfsi
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+</ul>
+<p><strong><a name="[20]"></a>adcMeasureTask</strong>(156 bytes, Stack size 16 btyes, Obj/source_adc_demo.o(.text.adcMeasureTask))<br>
+<br>[Stack]<ul><li>Max Depth = 72 
+<li>Call Chain = adcMeasureTask &rArr; hal_adc_config_channel </ul>
+<br>[Calls]<ul>
+<li><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_printf
+<li><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_config_channel
+<li><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_adc_start
+</ul>
+<br>[Called By]<ul>
+<li><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_Init
+<li><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_ProcessEvent
+</ul>
+<p><strong><a name="[3b]"></a>_fpadd_parts</strong>(332 bytes, Stack size 20 btyes, _addsub_sf.o(.text))<br>
+<br>[Called By]<ul>
+<li><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__addsf3
+<li><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__subsf3
+</ul>
+</body>
+</html>
