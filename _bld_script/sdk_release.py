@@ -9,8 +9,8 @@ import git
 import yaml
 from datetime import datetime
 
-giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
-gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
+giturl = 'git@github.com:duanmubingshuai/project.git'
+gitreleaseurl = 'git@github.com:duanmubingshuai/hello_w.git'
 #for test
 #giturl = 'git@git.phyplusinc.com:yu.zheng/bbb_sdk.git'
 #gitreleaseurl = 'git@git.phyplusinc.com:yu.zheng/hello_w.git'
