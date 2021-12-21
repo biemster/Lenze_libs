@@ -9,11 +9,11 @@ import git
 import yaml
 from datetime import datetime
 
-giturl = 'git@192.168.1.11:gecko/bbb_sdk.git'
-gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_bbb_sdk.git'
+#giturl = 'git@192.168.1.11:gecko/jack_sdk.git'
+#gitreleaseurl = 'git@192.168.1.11:phyplusdev/release_jack_sdk.git'
 #for test
-#giturl = 'git@git.phyplusinc.com:yu.zheng/bbb_sdk.git'
-#gitreleaseurl = 'git@git.phyplusinc.com:yu.zheng/hello_w.git'
+giturl = 'git@github.com:duanmubingshuai/project.git'
+gitreleaseurl = 'git@github.com:duanmubingshuai/hello_w.git'
 #locallocation = '../git_python/clone3'
 
 locallocation = os.path.dirname(os.path.realpath(__file__))
@@ -34,7 +34,7 @@ locallocation = os.path.dirname(locallocation)
 #                 [1,'example\\ble_peripheral\\simpleBlePeripheral\\simpleBlePeripheral.uvprojx']]
 
 usage = 'Usage: sdk_release.py [--help] [--branch] [--tag] [--trunk] [--merge] [--release=......]\n' + \
-        '[--mkbranch=......] [--mktag=......]\n'
+        '[--mkbranch=......] [--mktag=......] [--rls=.......]\n'
 optioninfo = '--help: help\n' + \
              '--branch: change branch,export a remote branch to local\n' + \
              '--trunk: download from git\n' + \
@@ -43,9 +43,9 @@ optioninfo = '--help: help\n' + \
              '--mkbranch=\'branch name\': create a branch in remote, and upload files to this new-created branch\n' + \
              '--mkbranch (format --mkbranch \'branch name\')\n' +\
              '--mktag=\'tag name\': create a tag (format --mktag tagname SHA \'commit message\')\n' + \
-             '--2releaseR= \'TAG name\' \'build name\' \'cfg or None\' \'branch name\n' + \
              '--tag=\'tag name\' \'new branch name\': export a tag to local\n' +\
-             '--rls=\'release config yaml\': export a tag to local push release remote repo\n'
+             '--rls=\'release config yaml\': export a tag to local push release remote repo\n' + \
+             '--2releaseR= \'TAG name\' \'build name\' \'cfg or None\' \'branch name\'\n'
 helpstr = usage + optioninfo
 #dest = 0
 
@@ -172,7 +172,7 @@ def sdk_rls(args):
     # choose sdk_build.yaml
     #os.system('python .\sdk_build.py ' + '-l ' + cfg['BuildConfig'][0] + ' -b ' + cfg['BuildConfig'][1])   # with modified sdk_build.yaml
     os.system('python .\sdk_build.py ' + '-l ' + cfg['BuildConfig'][0] + ' -b all')   # with modified sdk_build.yaml
-
+    #os.system('python .\sdk_build.py ' + '-l ' + 'sdk_build.yml' + ' -b all')   # with modified sdk_build.yaml	
     # find latest log file
     base_dir = locallocation+'\\_bld_script\\'
     filelist = os.listdir(base_dir)
@@ -230,7 +230,6 @@ def sdk_rls(args):
     print('now the origin url is release reposity')
     '''
     return
-
 
 def sdk_2release(args):
     # global dest
@@ -314,7 +313,6 @@ def sdk_2release(args):
     '''
     return
 
-
 def build_result(logfile):
     f = open(logfile, "r")
     builderror = 0
@@ -334,6 +332,7 @@ def build_result(logfile):
                     print('error in ', prjname)
                     builderror = builderror + errnum
     return builderror
+
 def log_err_check(fname):
     flog=open(fname,"r")
     flog.seek(0,0)
@@ -343,7 +342,7 @@ def log_err_check(fname):
         if(len(logstr) == 0):
             break #read completed
         if(logstr.find('Error(s)')>0 and logstr.find('Warning(s)')>0 ):
-            errnum =errnum+ int(logstr[logstr.find('-')+1:logstr.find('Error(s)')])
+            errnum = errnum+ int(logstr[logstr.find('-')+1:logstr.find('Error(s)')])
             warnum = warnum+int(logstr[logstr.find('Error(s)')+9: logstr.find('Warning(s)')])
         if(logstr.find('prj build fail check _bld.txt')>0):
             failnum = failnum+1
@@ -411,19 +410,20 @@ def protectfile(cfg):
     print(cfg)
     bld = get_bld_path(rls_config(cfg[0]['rls_example'][0]))
     print(bld)
-    cur=get_dir_path(os.path.join(locallocation,'example'),2)
-    remove_example=find_del_fold(bld,cur)
-    
+    #cur=get_dir_path(os.path.join(locallocation,'example'),3)
+    #remove_example=find_del_fold(bld,cur)
+    '''
     for del_path in remove_example:
         # print(del_path)
-        f_path = 'aliGenie_bleMesh'
+        #f_path = 'aliGenie_bleMesh'
+        f_path = '_test'
         if f_path in del_path :
-            print(del_path)
-        else:
+            #print(del_path)
+        #else:
             cmd = 'rd /s /q ' + del_path
             print(cmd)
             validcmd(cmd)
-
+    '''
     for del_path in cfg[2]['remove_folder']:
         #libsrcpath = 'clonefile'+ '\\' + del_path[1]  #clone file cannot have a space inside
         libsrcpath = locallocation.split('/')[-1] + '\\' + del_path  # clone file cannot have a space inside
@@ -533,6 +533,7 @@ def main(argv):
         return
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'h?', ['branch', 'merge', 'release=', '2releaseR', 'rls','mkbranch=', 'mktag=', 'tag=','trunk', 'help', 'dummy'])
+        #opts, args = getopt.getopt(sys.argv[1:], 'h?', ['branch', 'merge', 'release=', 'rls','mkbranch=', 'mktag=', 'tag=','trunk', 'help', 'dummy'])
         #if (len(opts) + len(args) != len(argv) - 1):
             #print('args after =')
             #print(helpstr)
@@ -586,6 +587,7 @@ def main(argv):
             sdk_2release(args)
             print('uploaded')
             break
+            
         elif opt == '--rls':
             if(len(args)!=1):
                 print('input release yaml file')
