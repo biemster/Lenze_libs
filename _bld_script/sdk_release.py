@@ -44,8 +44,8 @@ optioninfo = '--help: help\n' + \
              '--mkbranch (format --mkbranch \'branch name\')\n' +\
              '--mktag=\'tag name\': create a tag (format --mktag tagname SHA \'commit message\')\n' + \
              '--tag=\'tag name\' \'new branch name\': export a tag to local\n' +\
-             '--rls=\'release config yaml\': export a tag to local push release remote repo\n'
-             '--2releaseR= \'TAG name\' \'build name\' \'cfg or None\' \'branch name\'\n' + \
+             '--rls=\'release config yaml\': export a tag to local push release remote repo\n' + \
+             '--2releaseR= \'TAG name\' \'build name\' \'cfg or None\' \'branch name\'\n'
 helpstr = usage + optioninfo
 #dest = 0
 
